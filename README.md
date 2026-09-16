@@ -1,16 +1,40 @@
-## Hi there 👋
+# 👋 Welcome to CFDev-Bridge
 
-<!--
-**CFDev-Bridge/CFDev-Bridge** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+### Software · Data · Innovation
 
-Here are some ideas to get you started:
+We build software solutions focused on technology, data,
+automation and artificial intelligence.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+---
+
+## 🚀 What we do
+
+- 💻 Software Development
+- 📊 Data & Analytics
+- 🤖 Artificial Intelligence
+- 🗄️ Database Solutions
+- 🌐 Web Applications
+- ⚙️ Automation & Integration
+
+---
+
+## 🛠️ Technologies
+
+`Java` · `Python` · `JavaScript` · `TypeScript`  
+`Angular` · `React` · `Oracle` · `PostgreSQL`  
+`Docker` · `Git` · `GitHub`
+
+---
+
+## 📂 Projects
+
+Explore our repositories and discover the projects
+we are currently developing.
+
+---
+
+<div align="center">
+
+### Building technology. Connecting ideas. Creating solutions.
+
+</div>
