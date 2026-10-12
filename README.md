@@ -127,3 +127,22 @@ Our repositories contain projects, experiments and solutions across different ar
                                │
                                ▼
                          🚀 SOLUTIONS
+
+---
+
+## 🧠 Claude Skills installer
+
+`install-claude-skills.sh` instala [Agent Skills](https://github.com/anthropics/skills) en Claude Code, a nivel de usuario (`~/.claude/skills`) o de proyecto (`./.claude/skills`).
+
+```bash
+chmod +x install-claude-skills.sh
+
+./install-claude-skills.sh --list                      # ver skills disponibles
+./install-claude-skills.sh pdf docx xlsx pptx          # instalar (scope usuario)
+./install-claude-skills.sh --all --scope project       # todas, en el proyecto actual
+./install-claude-skills.sh --ref <commit> pdf          # fijar versión (reproducible)
+./install-claude-skills.sh -s ./mis-skills -p . --all  # origen local
+./install-claude-skills.sh --help                      # todas las opciones
+```
+
+Seguridad: valida nombres de skill y frontmatter (`name`/`description`) de cada `SKILL.md`, rechaza rutas con `..` y skills con enlaces simbólicos, instala de forma atómica y, con `--force`, respalda la versión previa.
