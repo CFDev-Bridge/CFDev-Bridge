@@ -245,17 +245,29 @@ prepare_source() {
 }
 
 # Extrae el valor de un campo del frontmatter YAML (entre las dos primeras '---').
+# Soporta valores en una línea y bloques multilínea (">", "|", ">-", "|-"),
+# que se devuelven unidos en una sola línea.
 read_frontmatter_field() {
   local file="$1" field="$2"
   awk -v field="$field" '
+    function emit(text) {
+      gsub(/[[:space:]]+/, " ", text)
+      gsub(/^ | $/, "", text)
+      print text
+      exit
+    }
     NR == 1 { if ($0 !~ /^---[[:space:]]*$/) exit; next }
-    /^---[[:space:]]*$/ { exit }
+    /^---[[:space:]]*$/ { if (in_block) emit(value); exit }
+    in_block {
+      if ($0 ~ /^[[:space:]]+[^[:space:]]/ || $0 ~ /^[[:space:]]*$/) { value = value " " $0; next }
+      emit(value)
+    }
     index($0, field ":") == 1 {
       value = substr($0, length(field) + 2)
       gsub(/^[[:space:]]+|[[:space:]]+$/, "", value)
+      if (value ~ /^[>|][+-]?$/) { in_block = 1; value = ""; next }
       gsub(/^["'\'']|["'\'']$/, "", value)
-      print value
-      exit
+      emit(value)
     }
   ' "$file"
 }
